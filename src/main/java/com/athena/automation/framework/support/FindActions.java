@@ -17,9 +17,8 @@ class FindActions {
 	private WebDriver webDriver;
 	private Browser browser;
 
-	public FindActions(Browser browser) {
-		this.webDriver = browser.getWebDriver();
-		this.browser = browser;
+	public FindActions(WebDriver webDriver) {
+		this.webDriver = webDriver;
 	}
 
 	public Element findElement(By by) throws Exception {

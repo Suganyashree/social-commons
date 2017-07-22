@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<suite name="Suite" parallel="false">
-  <test name="Test">
-    <classes>
-      <class name="TestPackage.NewTest"/>
-    </classes>
-  </test> <!-- Test -->
-</suite> <!-- Suite -->
+
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="Calendar Suite" allow-return-values="true" verbose="1">
+	<test name="Calendar Test">
+		<classes>
+			<class name="com.athena.automation.scripts.social.webapp.tests.profile.CalendarTests" />
+		</classes>
+	</test>
+</suite>

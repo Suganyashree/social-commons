@@ -18,6 +18,7 @@ public class Browser extends AllureActions {
 	public Browser(WebDriver webDriver) throws IOException {
 		super(webDriver);
 		this.webDriver = webDriver;
+		this.findActions = new FindActions(webDriver);
 	}
 	
 	@Step
