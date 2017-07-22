@@ -13,9 +13,9 @@ public class Element extends AllureActions {
 	private WebElement webElement;
 	private WebDriver webDriver;
 
-	public Element(Browser browser) {
-		super(browser.getWebDriver());
-		this.webDriver = browser.getWebDriver();
+	public Element(WebDriver webDriver) {
+		super(webDriver);
+		this.webDriver = webDriver;
 	}
 
 	@Step

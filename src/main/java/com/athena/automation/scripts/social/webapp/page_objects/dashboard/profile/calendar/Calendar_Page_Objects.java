@@ -14,24 +14,24 @@ public class Calendar_Page_Objects {
 	}
 	
 	public Element month_button() throws Exception {
-		return driver.getBrowser().findElement(By.className(baseCss + "fc-button-month"));
+		return driver.getBrowser().findElement(By.cssSelector(baseCss + "span.fc-button-month"));
 	}
 	public Element week_button() throws Exception {
-		return driver.getBrowser().findElement(By.className(baseCss + "fc-button-agendaWeek"));
+		return driver.getBrowser().findElement(By.cssSelector(baseCss + "span.fc-button-agendaWeek"));
 	}
 	public Element day_button() throws Exception {
-		return driver.getBrowser().findElement(By.className(baseCss + "fc-button-agendaDay"));
+		return driver.getBrowser().findElement(By.cssSelector(baseCss + "span.fc-button-agendaDay"));
 	}
 	public Element today_button() throws Exception {
-		return driver.getBrowser().findElement(By.className(baseCss + "fc-button-today"));
+		return driver.getBrowser().findElement(By.cssSelector(baseCss + "span.fc-button-today"));
 	}
 	public Element prev_button() throws Exception {
-		return driver.getBrowser().findElement(By.className(baseCss + "fc-button-prev"));
+		return driver.getBrowser().findElement(By.cssSelector(baseCss + "span.fc-button-prev"));
 	}
 	public Element next_button() throws Exception {
-		return driver.getBrowser().findElement(By.className(baseCss + "fc-button-next"));
+		return driver.getBrowser().findElement(By.cssSelector(baseCss + "span.fc-button-next"));
 	}
 	public Element date_label() throws Exception {
-		return driver.getBrowser().findElement(By.className(baseCss + "fc-header-title"));
+		return driver.getBrowser().findElement(By.cssSelector(baseCss + "span.fc-header-title"));
 	}
 }

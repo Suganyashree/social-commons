@@ -29,7 +29,7 @@ public class CalendarTests {
 		calendarPage = profilePopup.openCalendar();
 	}
 
-	@AfterMethod
+	@AfterMethod(alwaysRun=true)
 	public void afterMethod() {
 		driver.close();
 	}

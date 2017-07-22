@@ -14,6 +14,6 @@ public class ProfilePopup_Objects {
 	}
 	
 	public Element calendar_link() throws Exception{
-		return driver.getBrowser().findElement(By.cssSelector(baseXpath + "a[text()='Calendar']"));
+		return driver.getBrowser().findElement(By.xpath(baseXpath + "a[text()='Calendar']"));
 	}
 }

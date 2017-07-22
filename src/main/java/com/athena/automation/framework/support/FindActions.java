@@ -15,7 +15,6 @@ import static java.util.concurrent.TimeUnit.SECONDS;
 
 class FindActions {
 	private WebDriver webDriver;
-	private Browser browser;
 
 	public FindActions(WebDriver webDriver) {
 		this.webDriver = webDriver;
@@ -38,7 +37,7 @@ class FindActions {
 		}.init(by);
 
 		WebElement webElement = wait.until(condition);
-		Element element = new Element(browser);
+		Element element = new Element(webDriver);
 		element.setWebElement(webElement);
 		
 		return element;
@@ -71,7 +70,7 @@ class FindActions {
 		List<WebElement> webElements = wait.until(condition);
 		List<Element> elements = new ArrayList<>();
 		for (WebElement webElement : webElements) {
-			Element element = new Element(browser);
+			Element element = new Element(webDriver);
 			element.setWebElement(webElement);
 			elements.add(element);
 		}
