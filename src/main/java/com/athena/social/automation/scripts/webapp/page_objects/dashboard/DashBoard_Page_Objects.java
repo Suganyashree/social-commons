@@ -23,4 +23,10 @@ public class DashBoard_Page_Objects {
 	public WebElement ask_hub(){
 		return driver.findElement(By.linkText("askHub"));
 	}
+	public WebElement globalnav_link() {
+		return driver.findElement(By.id("j-satNav"));
+	}
+	public WebElement calendar_link() {
+		return driver.findElement(By.linkText("Calendar"));
+	}
 }

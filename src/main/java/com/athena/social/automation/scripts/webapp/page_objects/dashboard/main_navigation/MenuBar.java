@@ -1,0 +1,11 @@
+package com.athena.social.automation.scripts.webapp.page_objects.dashboard.main_navigation;
+
+import org.openqa.selenium.WebDriver;
+
+public class MenuBar {
+	public MenuBar_Objects webElements;
+
+	public MenuBar(WebDriver driver) {
+		this.webElements = new MenuBar_Objects(driver);
+	}
+}
