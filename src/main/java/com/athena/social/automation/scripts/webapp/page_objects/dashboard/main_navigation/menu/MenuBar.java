@@ -1,4 +1,4 @@
-package com.athena.social.automation.scripts.webapp.page_objects.dashboard.main_navigation;
+package com.athena.social.automation.scripts.webapp.page_objects.dashboard.main_navigation.menu;
 
 import org.openqa.selenium.WebDriver;
 

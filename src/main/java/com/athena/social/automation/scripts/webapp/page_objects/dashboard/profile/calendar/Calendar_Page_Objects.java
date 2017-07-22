@@ -30,7 +30,7 @@ public class Calendar_Page_Objects {
 	public WebElement next_button() {
 		return driver.findElement(By.className(baseCss + "fc-button-next"));
 	}
-	public WebElement title_label() {
+	public WebElement date_label() {
 		return driver.findElement(By.className(baseCss + "fc-header-title"));
 	}
 }

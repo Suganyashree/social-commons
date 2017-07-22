@@ -1,4 +1,4 @@
-package com.athena.social.automation.scripts.webapp.tests.profile;
+package com.athena.social.automation.scripts.webapp.tests.messaging;
 
 import org.testng.annotations.Test;
 import org.testng.annotations.BeforeMethod;
@@ -11,7 +11,7 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.AfterSuite;
 
-public class Calendar {
+public class InboxTests {
   @Test(dataProvider = "dp")
   public void f(Integer n, String s) {
   }
