@@ -1,18 +1,19 @@
 package com.athena.automation.scripts.social.webapp.page_objects.dashboard.global_navigation.links.profile;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+
+import com.athena.automation.framework.Driver;
+import com.athena.automation.framework.support.Element;
 
 public class ProfilePopup_Objects {
-	private WebDriver driver;
+	private Driver driver;
 	private String baseXpath = ".//nav[@id='j-globalNav-bg']//div[@id='j-links']//section[@class='j-user-profile']/..//";
 
-	public ProfilePopup_Objects(WebDriver driver) {
+	public ProfilePopup_Objects(Driver driver) {
 		this.driver = driver;
 	}
 	
-	public WebElement calendar_link(){
-		return driver.findElement(By.cssSelector(baseXpath + "a[text()='Calendar']"));
+	public Element calendar_link() throws Exception{
+		return driver.getBrowser().findElement(By.cssSelector(baseXpath + "a[text()='Calendar']"));
 	}
 }

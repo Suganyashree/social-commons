@@ -1,18 +1,19 @@
 package com.athena.automation.scripts.social.webapp.page_objects.dashboard.global_navigation.menu;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+
+import com.athena.automation.framework.Driver;
+import com.athena.automation.framework.support.Element;
 
 public class MenuBar_Objects {
-	private WebDriver driver;
+	private Driver driver;
 	private String baseCss = "nav#j-globalNav-bg ul.j-globalNav ";
 
-	public MenuBar_Objects(WebDriver driver) {
+	public MenuBar_Objects(Driver driver) {
 		this.driver = driver;
 	}
 	
-	public WebElement home_link(){
-		return driver.findElement(By.cssSelector(baseCss + "li#jive-nav-link-home a"));
+	public Element home_link() throws Exception{
+		return driver.getBrowser().findElement(By.cssSelector(baseCss + "li#jive-nav-link-home a"));
 	}
 }

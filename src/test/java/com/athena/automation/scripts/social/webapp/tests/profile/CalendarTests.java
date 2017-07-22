@@ -2,6 +2,8 @@ package com.athena.automation.scripts.social.webapp.tests.profile;
 
 import org.testng.annotations.Test;
 
+import com.athena.automation.framework.Driver;
+import com.athena.automation.framework.support.Element;
 import com.athena.automation.scripts.social.webapp.page_objects.dashboard.DashBoard_Page;
 import com.athena.automation.scripts.social.webapp.page_objects.dashboard.global_navigation.links.profile.ProfilePopup;
 import com.athena.automation.scripts.social.webapp.page_objects.dashboard.profile.calendar.Calendar_Page;
@@ -10,32 +12,19 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.Properties;
-
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 
 public class CalendarTests {
-	private WebDriver driver;
+	private Driver driver;
 	private DashBoard_Page dashBoard_Page;
 	private Calendar_Page calendarPage;
 
 	@BeforeMethod
-	public void beforeMethod() throws FileNotFoundException, IOException {
-		this.driver = new ChromeDriver();
-		Properties properties = new Properties();
-		properties.load(new FileInputStream("path/filename"));
-		String baseUrl = properties.getProperty("social.url");
-		driver.get(baseUrl);
+	public void beforeMethod() throws Exception {
+		this.driver = new Driver();
 		dashBoard_Page = new DashBoard_Page(driver);
-
 		ProfilePopup profilePopup = dashBoard_Page.globalNavigation.linksBar.openProfilePopup();
 		calendarPage = profilePopup.openCalendar();
 	}
@@ -43,12 +32,11 @@ public class CalendarTests {
 	@AfterMethod
 	public void afterMethod() {
 		driver.close();
-		driver.quit();
 	}
 
 	@Test
-	public void calendarDayTest() {
-		WebElement monthButton = calendarPage.webElements.month_button();
+	public void calendarDayTest() throws Exception {
+		Element monthButton = calendarPage.webElements.month_button();
 		Assert.assertTrue(monthButton.getAttribute("class").contains("fc-state-active"), "'Month Button' is not selected by default");
 
 		calendarPage.webElements.day_button().click();
@@ -57,7 +45,7 @@ public class CalendarTests {
 		SimpleDateFormat sdf = new SimpleDateFormat("EEEE, MMM d, yyyy");
 
 		String currentDate = sdf.format(now);
-		WebElement dateLabel = calendarPage.webElements.date_label();
+		Element dateLabel = calendarPage.webElements.date_label();
 		Assert.assertEquals(dateLabel.getText(), currentDate, "'Date Label' does not match");
 
 		calendarPage.webElements.prev_button().click();
@@ -76,15 +64,15 @@ public class CalendarTests {
 	}
 
 	@Test
-	public void calendarWeekTest() {
-		WebElement monthButton = calendarPage.webElements.month_button();
+	public void calendarWeekTest() throws Exception {
+		Element monthButton = calendarPage.webElements.month_button();
 		Assert.assertTrue(monthButton.getAttribute("class").contains("fc-state-active"), "'Month Button' is not selected by default");
 
 		calendarPage.webElements.week_button().click();
 		
 		Calendar calendar = Calendar.getInstance();
 		String currentWeek = getWeekDays(calendar);
-		WebElement dateLabel = calendarPage.webElements.date_label();
+		Element dateLabel = calendarPage.webElements.date_label();
 		Assert.assertEquals(dateLabel.getText(), currentWeek, "'Date Label' does not match");
 
 		calendarPage.webElements.prev_button().click();
@@ -101,15 +89,15 @@ public class CalendarTests {
 	}
 
 	@Test
-	public void calendarMonthTest() {
-		WebElement monthButton = calendarPage.webElements.month_button();
+	public void calendarMonthTest() throws Exception {
+		Element monthButton = calendarPage.webElements.month_button();
 		Assert.assertTrue(monthButton.getAttribute("class").contains("fc-state-active"), "'Month Button' is not selected by default");
 
 		Date now = new Date();
 		SimpleDateFormat sdf = new SimpleDateFormat("MMMM yyyy");
 
 		String currentDate = sdf.format(now);
-		WebElement dateLabel = calendarPage.webElements.date_label();
+		Element dateLabel = calendarPage.webElements.date_label();
 		Assert.assertEquals(dateLabel.getText(), currentDate, "'Date Label' does not match");
 
 		calendarPage.webElements.prev_button().click();
