@@ -4,7 +4,7 @@
 
 <suite name="Calendar Suite" allow-return-values="true" verbose="1" parallel="methods" thread-count="3">
 	<listeners>
-		<listener class-name="com.athena.automation.framework.reporters.AllureListener" />
+		<listener class-name="com.athena.automation.framework.reporters.SlackListener" />
 	</listeners>
 	<test name="Calendar Test">
 		<classes>

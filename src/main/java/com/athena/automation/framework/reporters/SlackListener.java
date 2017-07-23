@@ -12,7 +12,7 @@ import ru.yandex.qatools.allure.annotations.Features;
 import ru.yandex.qatools.allure.annotations.Stories;
 import ru.yandex.qatools.allure.utils.AnnotationManager;
 
-public class AllureListener implements IResultListener {
+public class SlackListener implements IResultListener {
 
 	@Override
 	public void onTestFailure(ITestResult result) {
