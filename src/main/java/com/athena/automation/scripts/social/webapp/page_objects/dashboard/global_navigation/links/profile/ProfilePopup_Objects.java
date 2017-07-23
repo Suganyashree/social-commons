@@ -5,6 +5,8 @@ import org.openqa.selenium.By;
 import com.athena.automation.framework.Driver;
 import com.athena.automation.framework.support.Element;
 
+import ru.yandex.qatools.allure.annotations.Step;
+
 public class ProfilePopup_Objects {
 	private Driver driver;
 	private String baseXpath = ".//nav[@id='j-globalNav-bg']//div[@id='j-links']//section[@class='j-user-profile']/..//";
@@ -13,6 +15,7 @@ public class ProfilePopup_Objects {
 		this.driver = driver;
 	}
 	
+	@Step
 	public Element calendar_link() throws Exception{
 		return driver.getBrowser().findElement(By.xpath(baseXpath + "a[text()='Calendar']"));
 	}

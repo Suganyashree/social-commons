@@ -5,6 +5,8 @@ import org.openqa.selenium.By;
 import com.athena.automation.framework.Driver;
 import com.athena.automation.framework.support.Element;
 
+import ru.yandex.qatools.allure.annotations.Step;
+
 public class MenuBar_Objects {
 	private Driver driver;
 	private String baseXpath = ".//div[@id='head']//div[@id='main-nav']//";
@@ -13,6 +15,7 @@ public class MenuBar_Objects {
 		this.driver = driver;
 	}
 	
+	@Step
 	public Element communications_link() throws Exception{
 		return driver.getBrowser().findElement(By.xpath(baseXpath + "a[text()='Communications']"));
 	}

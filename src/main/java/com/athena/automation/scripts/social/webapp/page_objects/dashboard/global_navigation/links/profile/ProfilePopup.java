@@ -3,6 +3,8 @@ package com.athena.automation.scripts.social.webapp.page_objects.dashboard.globa
 import com.athena.automation.framework.Driver;
 import com.athena.automation.scripts.social.webapp.page_objects.dashboard.profile.calendar.Calendar_Page;
 
+import ru.yandex.qatools.allure.annotations.Step;
+
 public class ProfilePopup {
 	public ProfilePopup_Objects webElements;
 	private Driver driver;
@@ -12,6 +14,7 @@ public class ProfilePopup {
 		this.webElements = new ProfilePopup_Objects(driver);
 	}
 
+	@Step
 	public Calendar_Page openCalendar() throws Exception {
 		webElements.calendar_link().click();
 		return new Calendar_Page(driver);

@@ -8,6 +8,10 @@ import com.athena.automation.scripts.social.webapp.page_objects.dashboard.DashBo
 import com.athena.automation.scripts.social.webapp.page_objects.dashboard.global_navigation.links.profile.ProfilePopup;
 import com.athena.automation.scripts.social.webapp.page_objects.dashboard.profile.calendar.Calendar_Page;
 
+import ru.yandex.qatools.allure.annotations.Features;
+import ru.yandex.qatools.allure.annotations.Step;
+import ru.yandex.qatools.allure.annotations.Stories;
+
 import org.testng.annotations.BeforeMethod;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
@@ -16,11 +20,14 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
+@Features("Calendar")
 public class CalendarTests {
 	private Driver driver;
 	private DashBoard_Page dashBoard_Page;
 	private Calendar_Page calendarPage;
 
+	@Stories({"Pre-conditions : Calendar"})
+	@Step
 	@BeforeMethod
 	public void beforeMethod() throws Exception {
 		this.driver = new Driver();
@@ -29,11 +36,14 @@ public class CalendarTests {
 		calendarPage = profilePopup.openCalendar();
 	}
 
+	@Stories({"Post-conditions : Calendar"})
+	@Step
 	@AfterMethod(alwaysRun=true)
 	public void afterMethod() {
 		driver.close();
 	}
-
+	
+	@Stories({"Calendar Days","Calendar Header Tests"})
 	@Test
 	public void calendarDayTest() throws Exception {
 		Element monthButton = calendarPage.webElements.month_button();
@@ -63,6 +73,7 @@ public class CalendarTests {
 		Assert.assertEquals(dateLabel.getText(), currentDate, "'Date Label' does not match");
 	}
 
+	@Stories({"Calendar Weeks","Calendar Header Tests"})
 	@Test
 	public void calendarWeekTest() throws Exception {
 		Element monthButton = calendarPage.webElements.month_button();
@@ -88,6 +99,7 @@ public class CalendarTests {
 		Assert.assertEquals(dateLabel.getText(), currentWeek, "'Date Label' does not match");
 	}
 
+	@Stories({"Calendar Months","Calendar Header Tests"})
 	@Test
 	public void calendarMonthTest() throws Exception {
 		Element monthButton = calendarPage.webElements.month_button();
