@@ -34,7 +34,7 @@ public class CalendarTests {
 	      ReadExcel read = new ReadExcel();
 	      String[] input = new String[2];
 	      for (int i = 0; i < input.length ;  i++) {
-	          input[i] = read.readXLSXFile("C:/Users/asuganyasree/Desktop/Book1.xlsx","Sheet1","Time Period", i+1);
+	          input[i] = read.readXLSXFile("C:/Users/asuganyasree/Desktop/Book1.xlsx","Sheet1","Time Period", i+2);
 	          input[i] = input[i].trim();
 	       }
 	      return input;
