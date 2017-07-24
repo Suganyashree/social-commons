@@ -8,18 +8,18 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.safari.SafariDriver;
 
-import com.athena.automation.framework.tooling.EnvironmentCheck;
+//import com.athena.automation.framework.tooling.EnvironmentCheck;
 
 public class InitiateBrowser {
 	public static WebDriver getBrowser(Properties envParams) throws Exception {
 		WebDriver driver;
 
 		String baseURL = envParams.getProperty("base_url");
-		int status = EnvironmentCheck.getResponseCode("https://social.athenahealth.com");
-        if (status != 200){
-            System.out.println("Sever is down. Try again later!!!!");
-            System.exit(0);
-        }
+//		int status = EnvironmentCheck.getResponseCode("https://social.athenahealth.com");
+//        if (status != 200){
+//            System.out.println("Sever is down. Try again later!!!!");
+//            System.exit(0);
+//        }
 		String browserName = envParams.getProperty("browser");
 		String driversPath = envParams.getProperty("drivers");
 		switch(browserName) {

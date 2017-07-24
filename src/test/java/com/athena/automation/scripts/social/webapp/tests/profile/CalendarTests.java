@@ -34,7 +34,7 @@ public class CalendarTests {
 	      ReadExcel read = new ReadExcel();
 	      String[] input = new String[2];
 	      for (int i = 0; i < input.length ;  i++) {
-	          input[i] = read.readXLSXFile("Desktop/Book1.xlsx","Sheet1","Time Period", i+1);
+	          input[i] = read.readXLSXFile("C:/Users/asuganyasree/Desktop/Book1.xlsx","Sheet1","Time Period", i+1);
 	          input[i] = input[i].trim();
 	       }
 	      return input;
@@ -59,7 +59,7 @@ public class CalendarTests {
 	}
 	
 	@Stories({"Calendar Days","Calendar Header Tests"})
-	@Test
+	@Test(enabled=false)
 	public void calendarDayTest() throws Exception {
 		Element monthButton = calendarPage.webElements.month_button();
 		Assert.assertTrue(monthButton.getAttribute("class").contains("fc-state-active"), "'Month Button' is not selected by default");
@@ -89,7 +89,7 @@ public class CalendarTests {
 	}
 
 	@Stories({"Calendar Weeks","Calendar Header Tests"})
-	@Test
+	@Test(enabled=false)
 	public void calendarWeekTest() throws Exception {
 		Element monthButton = calendarPage.webElements.month_button();
 		Assert.assertTrue(monthButton.getAttribute("class").contains("fc-state-active"), "'Month Button' is not selected by default");
@@ -115,7 +115,7 @@ public class CalendarTests {
 	}
 
 	@Stories({"Calendar Months","Calendar Header Tests"})
-	@Test
+	@Test(enabled=false)
 	public void calendarMonthTest() throws Exception {
 		Element monthButton = calendarPage.webElements.month_button();
 		Assert.assertTrue(monthButton.getAttribute("class").contains("fc-state-active"), "'Month Button' is not selected by default");
