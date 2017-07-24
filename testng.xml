@@ -2,7 +2,7 @@
 
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 
-<suite name="Calendar Suite" allow-return-values="true" verbose="1" parallel="methods" thread-count="3">
+<suite name="Calendar Suite" allow-return-values="true" verbose="1" parallel="methods" thread-count="1">
 	<listeners>
 		<listener class-name="com.athena.automation.framework.reporters.SlackListener" />
 	</listeners>

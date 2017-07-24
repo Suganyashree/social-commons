@@ -40,6 +40,7 @@ public class CalendarTests {
 	@Step
 	@AfterMethod(alwaysRun=true)
 	public void afterMethod() {
+		driver.getBrowser().attachScreenshot();
 		driver.close();
 	}
 	
@@ -138,8 +139,8 @@ public class CalendarTests {
 		Date saturday = calendar.getTime();
 		
 		SimpleDateFormat startDate_sdf = new SimpleDateFormat("MMM d");
-		SimpleDateFormat endDate_sdf = new SimpleDateFormat("MMM d yyyy");
+		SimpleDateFormat endDate_sdf = new SimpleDateFormat("d yyyy");
 
-		return startDate_sdf.format(sunday) + " - " + endDate_sdf.format(saturday);
+		return startDate_sdf.format(sunday) + " -- " + endDate_sdf.format(saturday);
 	}
 }
