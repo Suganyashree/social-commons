@@ -4,6 +4,7 @@ import org.testng.annotations.Test;
 
 import com.athena.automation.framework.Driver;
 import com.athena.automation.framework.support.Element;
+import com.athena.automation.framework.tooling.ReadExcel;
 import com.athena.automation.scripts.social.webapp.page_objects.dashboard.DashBoard_Page;
 import com.athena.automation.scripts.social.webapp.page_objects.dashboard.global_navigation.links.profile.ProfilePopup;
 import com.athena.automation.scripts.social.webapp.page_objects.dashboard.profile.calendar.Calendar_Page;
@@ -13,6 +14,7 @@ import ru.yandex.qatools.allure.annotations.Step;
 import ru.yandex.qatools.allure.annotations.Stories;
 
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.DataProvider;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 
@@ -26,6 +28,18 @@ public class CalendarTests {
 	private DashBoard_Page dashBoard_Page;
 	private Calendar_Page calendarPage;
 
+	@DataProvider(name = "CalendarLabels")
+    
+	  public static String[] links() {
+	      ReadExcel read = new ReadExcel();
+	      String[] input = new String[2];
+	      for (int i = 0; i < input.length ;  i++) {
+	          input[i] = read.readXLSXFile("Desktop/Book1.xlsx","Sheet1","Time Period", i+1);
+	          input[i] = input[i].trim();
+	       }
+	      return input;
+	  }
+	
 	@Stories({"Pre-conditions : Calendar"})
 	@Step
 	@BeforeMethod
@@ -127,7 +141,25 @@ public class CalendarTests {
 		dateLabel = calendarPage.webElements.date_label();
 		Assert.assertEquals(dateLabel.getText(), currentDate, "'Date Label' does not match");
 	}
-
+	
+	
+	@Stories({"Calendar Header Tests","Custom Days Test"})
+	@Test(dataProvider = "CalendarLabels")
+	public void calendarCustomTest(String customLabels) throws Exception {
+		String[] string = customLabels.split(",");
+		Element monthButton = calendarPage.webElements.month_button();
+		Element dateLabel = calendarPage.webElements.date_label();
+		Assert.assertTrue(monthButton.getAttribute("class").contains("fc-state-active"), "'Month Button' is not selected by default");
+		if (string[0].equals("Previous Month")) {
+			calendarPage.webElements.prev_button().click();
+		}else if (string[0].equals("Next Month")) {
+			calendarPage.webElements.next_button().click();
+		}
+		Assert.assertEquals(dateLabel.getText(), string[1], "'Date Label' does not match");
+	}
+	
+	
+	
 	private String getWeekDays(Calendar calendar) {		
 		while (calendar.get(Calendar.DAY_OF_WEEK) != Calendar.SUNDAY) {
 			calendar.add(Calendar.DATE, -1);
@@ -139,7 +171,7 @@ public class CalendarTests {
 		Date saturday = calendar.getTime();
 		
 		SimpleDateFormat startDate_sdf = new SimpleDateFormat("MMM d");
-		SimpleDateFormat endDate_sdf = new SimpleDateFormat("d yyyy");
+		SimpleDateFormat endDate_sdf = new SimpleDateFormat("MMM d yyyy");
 
 		return startDate_sdf.format(sunday) + " -- " + endDate_sdf.format(saturday);
 	}

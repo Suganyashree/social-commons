@@ -38,19 +38,30 @@
 			<artifactId>slack-webhook</artifactId>
 			<version>1.1.1</version>
 		</dependency>
+		<dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi-ooxml</artifactId>
+			<version>3.9</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>fluent-hc</artifactId>
+			<version>4.2.1</version>
+			<scope>test</scope>
+		</dependency>
 	</dependencies>
 
 	<build>
 		<plugins>
-		<plugin>
-		    <groupId>org.apache.maven.plugins</groupId>
-		    <artifactId>maven-compiler-plugin</artifactId>
-		    <version>3.2</version>
-		    <configuration>
-		      <source>1.8</source>
-		      <target>1.8</target>
-		    </configuration>
-		  </plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.2</version>
+				<configuration>
+					<source>1.8</source>
+					<target>1.8</target>
+				</configuration>
+			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-resources-plugin</artifactId>
@@ -76,7 +87,9 @@
 				<version>2.5</version>
 				<configuration>
 					<testFailureIgnore>true</testFailureIgnore>
-					<argLine>-javaagent:"${settings.localRepository}${file.separator}org${file.separator}aspectj${file.separator}aspectjweaver${file.separator}${aspectj.version}${file.separator}aspectjweaver-${aspectj.version}.jar" -Xms1024m -Xmx2056m -XX:+UseConcMarkSweepGC -XX:+CMSPermGenSweepingEnabled -XX:+CMSClassUnloadingEnabled</argLine>
+					<argLine>-javaagent:"${settings.localRepository}${file.separator}org${file.separator}aspectj${file.separator}aspectjweaver${file.separator}${aspectj.version}${file.separator}aspectjweaver-${aspectj.version}.jar"
+						-Xms1024m -Xmx2056m -XX:+UseConcMarkSweepGC
+						-XX:+CMSPermGenSweepingEnabled -XX:+CMSClassUnloadingEnabled</argLine>
 					<suiteXmlFiles>
 						<suiteXmlFile>${basedir}/testng.xml</suiteXmlFile>
 					</suiteXmlFiles>
